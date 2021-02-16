@@ -4,12 +4,10 @@ const generateNumLessThan = (maxNum) => {
 
 const getNumLessThanTen = (callback) => {
   setTimeout(() => {
-    const randNum = generateRandomNum(10);
+    const randNum = generateNumLessThan(10);
     callback(null, randNum);
   }, 0);
 };
-
-
 
 
 module.exports = getNumLessThanTen;

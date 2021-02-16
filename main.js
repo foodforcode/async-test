@@ -9,5 +9,46 @@ CONSTRAINTS
 - No editing any file except main.js (comments are the exception)
 */
 
+const getNumLessThanTen = require('./getNumLessThan.js');
+const writeToFile = require('./writeToHardDrive.js');
+const waitOneSecond = require('./waitOneSecond.js');
 
 
+getNumLessThanTen((err, randNum) => {
+  if(err) {
+    console.log(err);
+    return;
+  } else {
+    //wait 3 seconds
+    waitOneSecond((err, waitConfirm) => {
+      if (err) {
+        console.log(err);
+        return;
+      } else {
+        waitOneSecond((err, waitConfirm) => {
+          if (err) {
+            console.log(err);
+            return;
+          } else {
+            waitOneSecond((err, waitConfirm) => {
+              if (err) {
+                console.log(err);
+                return;
+              } else {
+                writeToFile(randNum.toString(), (err, message) => {
+                  if (err) {
+                    console.log(err);
+                    return;
+                  } else {
+                    console.log(message);
+                    console.log("I'm done!");
+                  }
+                })
+              }
+            })
+          }
+        })
+      }
+    })
+  }
+})
